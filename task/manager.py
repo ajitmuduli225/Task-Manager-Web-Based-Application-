@@ -35,3 +35,11 @@ class TaskManager:
 
     def filter_tasks_by_priority(self, priority):
         return Task.objects.filter(priority=priority)
+
+
+    def get_task_by_id(self,task_id):
+        try:
+            task = Task.objects.get(id=task_id)
+            return task
+        except Task.DoesNotExist:
+            return None
